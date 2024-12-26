@@ -1,12 +1,12 @@
-## initial setup 
+
 print(Welcome to jenvic ATM_Machine)
 
 --ATM Machine Simulation
 
-Initial Setup
+## Initial Setup
 balance = 5000
 
-import getpass 
+import getpass
 pin = 1234
 
 User Authentication
