@@ -9,10 +9,9 @@ Create a repository called ATM_Machine in GitHub .
 
 
 
-
 ## AUTHORS 
 
-●JENNIFER 
+●Jennifer Boadua
 
 
 ●VICTORIA 
