@@ -7,6 +7,7 @@ print(Welcome to jenvic ATM_Machine)
 balance = 5000
 
 import getpass
+print(getpass)
 pin = 1234
 
 User Authentication
