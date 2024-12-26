@@ -4,11 +4,7 @@
 
 Create a repository called ATM_Machine in GitHub .
 
-
-In the text editor of the README.md file,type 
-ATM MACHINE 
-check how t
-
+https://images.app.goo.gl/cuJpRGuZkpNGwQiT9
 
 
 ## AUTHORS 
