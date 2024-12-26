@@ -5,6 +5,8 @@ print(Welcome to jenvic ATM_Machine)
 
 Initial Setup
 balance = 5000
+
+import getpass 
 pin = 1234
 
 User Authentication
