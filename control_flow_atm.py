@@ -1,24 +1,19 @@
 
-print(Welcome to jenvic ATM_Machine)
+print("Welcome to Jenvic ATM Machine")
 
---ATM Machine Simulation
-
-## Initial Setup
+Initial Setup
 balance = 5000
-
-import getpass
-print(getpass)
 pin = 1234
+import getpass
 
 User Authentication
 attempts = 0
 while attempts < 3:
-    user_pin = int(input("Enter your PIN: "))
-    if user_pin == pin:
+    user_pin = getpass.getpass("Enter your PIN: ")
+    if user_pin == str(pin):
         break
     attempts += 1
     print("Incorrect PIN. Try again.")
-
 if attempts == 3:
     print("Too many incorrect attempts. Access blocked.")
     exit()
@@ -31,7 +26,6 @@ while True:
     print("3. Withdraw Funds")
     print("4. Change PIN")
     print("5. Exit")
-
     choice = input("Enter your choice: ")
 
     # Check Balance
@@ -40,30 +34,54 @@ while True:
 
     # Deposit Funds
     elif choice == "2":
-        amount = int(input("Enter amount to deposit: "))
-        if amount > 0:
-            balance += amount
-            print(f"New Balance: {balance}")
+        while True:
+            try:
+                amount = int(input("Enter amount to deposit: "))
+                if amount > 0:
+                    balance += amount
+                    print(f"New Balance: {balance}")
+                    break
+                else:
+                    print("Invalid amount. Please enter a positive number.")
+            except ValueError:
+                print("Invalid input. Please enter a valid number.")
 
     # Withdraw Funds
     elif choice == "3":
-        amount = int(input("Enter amount to withdraw: "))
-        if amount > 0 and amount <= balance:
-            balance -= amount
-            print(f"New Balance: {balance}")
-        else:
-            print("Insufficient balance.")
+        while True:
+            try:
+                amount = int(input("Enter amount to withdraw: "))
+                if amount > 0 and amount <= balance:
+                    balance -= amount
+                    print(f"New Balance: {balance}")
+                    break
+                elif amount > balance:
+                    print("Insufficient balance.")
+                else:
+                    print("Invalid amount. Please enter a positive number.")
+            except ValueError:
+                print("Invalid input. Please enter a valid number.")
 
     # Change PIN
     elif choice == "4":
-        current_pin = int(input("Enter current PIN: "))
-        if current_pin == pin:
-            new_pin = int(input("Enter new PIN (4-digit): "))
-            if len(str(new_pin)) == 4:
-                pin = new_pin
-                print("PIN changed successfully.")
+        while True:
+            current_pin = getpass.getpass("Enter current PIN: ")
+            if current_pin == str(pin):
+                while True:
+                    new_pin = getpass.getpass("Enter new PIN (4-digit): ")
+                    if len(new_pin) == 4 and new_pin.isdigit():
+                        confirm_pin = getpass.getpass("Confirm new PIN: ")
+                        if confirm_pin == new_pin:
+                            pin = int(new_pin)
+                            print("PIN changed successfully.")
+                            break
+                        else:
+                            print("PIN mismatch. Try again.")
+                    else:
+                        print("Invalid PIN. Please enter a 4-digit integer.")
+                break
             else:
-                print("Invalid PIN. Please try again.")
+                print("Incorrect current PIN. Try again.")
 
     # Exit
     elif choice == "5":
@@ -74,4 +92,5 @@ while True:
 
     else:
         print("Invalid choice. Please try again.")
+
 
